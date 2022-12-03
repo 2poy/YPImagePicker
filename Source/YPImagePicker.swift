@@ -24,6 +24,9 @@ open class YPImagePicker: UINavigationController {
     public func didFinishPicking(completion: @escaping DidFinishPickingCompletion) {
         _didFinishPicking = completion
     }
+    public func saveSelectedItemIfPossible() {
+        picker.saveSelectedItemIfPossible()
+    }
 
     /// Get a YPImagePicker instance with the default configuration.
     public convenience init() {

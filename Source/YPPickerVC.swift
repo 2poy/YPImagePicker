@@ -13,6 +13,7 @@ import Photos
 protocol YPPickerVCDelegate: AnyObject {
     func libraryHasNoItems()
     func shouldAddToSelection(indexPath: IndexPath, numSelections: Int) -> Bool
+    func saveSelectedItemIfPossible()
 }
 
 open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
@@ -383,5 +384,9 @@ extension YPPickerVC: YPLibraryViewDelegate {
     
     public func libraryViewShouldAddToSelection(indexPath: IndexPath, numSelections: Int) -> Bool {
         return pickerVCDelegate?.shouldAddToSelection(indexPath: indexPath, numSelections: numSelections) ?? true
+    }
+    
+    public func saveSelectedItemIfPossible() {
+        done()
     }
 }
